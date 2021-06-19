@@ -17,6 +17,8 @@ public abstract class BaseTest {
     protected static final String POSTSURL = PropertyManager.getInstance().getPostsUri();
 
 
+
+
     @BeforeAll
     public static void setupAll() {
         LOGGER.info("Start to set up for all tests");
