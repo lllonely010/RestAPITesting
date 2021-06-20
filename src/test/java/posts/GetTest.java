@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(JUnitPlatform.class)
-public class PostsResponseTest extends BaseTest{
+public class GetTest extends BaseTest{
 
     @Test public void
     testResponseStatusCode() {

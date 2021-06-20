@@ -8,7 +8,6 @@ import objects.Post;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Test;
-import support.PropertyManager;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -18,11 +17,9 @@ public class ObjectMappingTest extends BaseTest {
 
     @Test public void
     testMapResponseToObjectUsingPost() {
-        String POSTSEDITURL = PropertyManager.getInstance().getPostEditUri(1);
 
         final Post object;
-        object = get(POSTSEDITURL).as(Post.class);
-
+        object = given().pathParam("userId","1").when().get(POSTSURL+"/{userId}").as(Post.class);
 
         assertThat(object.getId(), equalTo(1));
         assertThat(object.getUserId(), equalTo(1));

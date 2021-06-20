@@ -7,6 +7,19 @@ public class Post {
     private String title;
     private String body;
 
+    public Post(int userId,int id, String title,String body){
+        this.userId = userId;
+        this.id= id;
+        this.title = title;
+        this.body = body;
+    }
+    public Post(int userId, String title,String body){
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+    }
+    public Post(){}
+
     public int getUserId() {
         return userId;
     }
@@ -19,9 +32,7 @@ public class Post {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getTitle() {
         return title;
