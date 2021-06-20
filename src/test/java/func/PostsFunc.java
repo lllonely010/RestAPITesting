@@ -1,11 +1,11 @@
-package funs;
+package func;
 
-import base.BaseFun;
+import base.BaseFunc;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class PostsFun extends BaseFun {
+public class PostsFunc extends BaseFunc {
 
     public static Response getPostsByUserID(int userId, String url){
         LOGGER.info("Get post by userId = " + userId);

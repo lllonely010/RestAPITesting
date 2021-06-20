@@ -1,8 +1,8 @@
-package funs;
+package func;
 
 import static io.restassured.RestAssured.given;
 
-import base.BaseFun;
+import base.BaseFunc;
 import io.restassured.common.mapper.TypeRef;
 import org.junit.jupiter.api.Assertions;
 
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import java.util.List;
 import java.util.Map;
 
-public class UserFun extends BaseFun {
+public class UserFunc extends BaseFunc {
 
     public static Integer getUserIDByName(String username, String url){
         int userId = 0;

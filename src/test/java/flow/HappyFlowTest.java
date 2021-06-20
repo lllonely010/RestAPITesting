@@ -1,7 +1,7 @@
 package flow;
 
 import base.BaseTest;
-import funs.PostsFun;
+import func.PostsFunc;
 import objects.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
-import funs.*;
+import func.*;
 import java.util.List;
 import java.util.Arrays;
 
@@ -23,8 +23,8 @@ public class HappyFlowTest extends BaseTest {
     @BeforeEach public void
     start() {
         LOGGER.info("Start to run a happy flow");
-        userId = UserFun.getUserIDByName("Delphine", USERURL);
-        postslist =  Arrays.asList(PostsFun.getPostsByUserID(userId,POSTSURL).getBody().as(Post[].class));
+        userId = UserFunc.getUserIDByName("Delphine", USERURL);
+        postslist =  Arrays.asList(PostsFunc.getPostsByUserID(userId,POSTSURL).getBody().as(Post[].class));
     }
     @Test public void
     testSearchPostSucceedFromValidUserName() {
@@ -43,7 +43,7 @@ public class HappyFlowTest extends BaseTest {
         LOGGER.info("Test Search comments by postId and check all mail address format");
         postslist.forEach(post -> {
             int postId = post.getId();
-            commentslist = Arrays.asList(CommentsFun.getCommentByPostID(postId,COMMENTURL).getBody().as(Comment[].class));
+            commentslist = Arrays.asList(CommentsFunc.getCommentByPostID(postId,COMMENTURL).getBody().as(Comment[].class));
             commentslist.forEach(comment -> Assertions.assertTrue(comment.getEmail().matches("^(.+)@(.+)$")));
         });
     }
