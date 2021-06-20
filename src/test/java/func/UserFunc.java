@@ -12,9 +12,9 @@ import java.util.Map;
 
 public class UserFunc extends BaseFunc {
 
-    public static Integer getUserIDByName(String username, String url){
+    public static Integer getUserIDByName(String username){
         int userId = 0;
-        List<Map<String, Object>> user = given().param("username",username).expect().statusCode(200).when().get(url).as(new TypeRef<List<Map<String, Object>>>() {});
+        List<Map<String, Object>> user = given().param("username",username).expect().statusCode(200).when().get(USERURL).as(new TypeRef<List<Map<String, Object>>>() {});
         if(user.size()>0) {
             LOGGER.info("Get userId by username = " + username);
             userId = (int) user.get(0).get("id");

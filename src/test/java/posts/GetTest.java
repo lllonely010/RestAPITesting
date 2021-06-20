@@ -25,6 +25,7 @@ public class GetTest extends BaseTest{
     start() {
         LOGGER.info("Test GET with /posts endpoint.");
     }
+
     @Test public void
     testResponseStatusCode() {
         expect().statusCode(200).when().get(POSTSURL);
