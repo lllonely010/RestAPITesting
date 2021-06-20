@@ -8,6 +8,7 @@ import io.restassured.common.mapper.TypeRef;
 import static io.restassured.RestAssured.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+@Tag("posts")
 @RunWith(JUnitPlatform.class)
 public class GetTest extends BaseTest{
 

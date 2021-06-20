@@ -4,6 +4,7 @@ import base.BaseTest;
 import func.PostsFunc;
 import objects.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.runner.JUnitPlatform;
@@ -13,6 +14,7 @@ import func.*;
 import java.util.List;
 import java.util.Arrays;
 
+@Tag("flow")
 @RunWith(JUnitPlatform.class)
 public class HappyFlowTest extends BaseTest {
 
