@@ -18,6 +18,10 @@ public class Post {
         this.title = title;
         this.body = body;
     }
+    public Post(int userId, String title){
+        this.userId = userId;
+        this.title = title;
+    }
     public Post(){}
 
     public int getUserId() {
