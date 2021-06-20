@@ -14,7 +14,8 @@ public class PropertyManager {
     public static String logFilePath = System.getProperty("user.dir") + "/resources/log4j2.xml";
     private String baseUri;
     private String postsUri;
-    private String postEditUri;
+    private String usersUri;
+    private String commentsUri;
 
 
     static {
@@ -43,7 +44,8 @@ public class PropertyManager {
 
         baseUri = prop.getProperty("baseUri");
         postsUri= prop.getProperty("posts");
-
+        usersUri = prop.getProperty("users");
+        commentsUri = prop.getProperty("comments");
     }
 
     public String getBaseUri() {
@@ -52,8 +54,11 @@ public class PropertyManager {
     public String getPostsUri() {
         return baseUri + postsUri;
     }
-    public String getPostEditUri(int userId) {
-        return baseUri + postsUri + "/" + userId;
+    public String getUsersUri() {
+        return baseUri + usersUri;
+    }
+    public String getCommentsUri() {
+        return baseUri + commentsUri;
     }
 
 

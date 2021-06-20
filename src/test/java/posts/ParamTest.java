@@ -17,5 +17,4 @@ public class ParamTest extends BaseTest{
     testGetWithParamSucceed() {
         given().param("userId",1).expect().statusCode(200).when().get(POSTSURL);
     }
-
 }
