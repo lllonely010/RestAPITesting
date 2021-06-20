@@ -16,7 +16,6 @@ public abstract class BaseTest {
 
     public static Logger LOGGER = LogManager.getLogger(BaseTest.class);
 
-    protected static final String BASEURL = PropertyManager.getInstance().getBaseUri();
     protected static final String POSTSURL = PropertyManager.getInstance().getPostsUri();
     protected static final String USERURL = PropertyManager.getInstance().getUsersUri();
     protected static final String COMMENTURL = PropertyManager.getInstance().getCommentsUri();
@@ -26,14 +25,9 @@ public abstract class BaseTest {
             .build();
 
     @BeforeAll
-    public static void setupAll() {
-        LOGGER.info("Start to set up for all tests");
-    }
+    public static void setupAll() { LOGGER.info("Start to set up for all tests"); }
 
     @AfterAll
-    public static void teardownAll() {
-
-        LOGGER.info("All tests finished");
-    }
+    public static void teardownAll() { LOGGER.info("All tests finished"); }
 
 }

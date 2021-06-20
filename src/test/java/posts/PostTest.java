@@ -4,6 +4,7 @@ import base.BaseTest;
 import static io.restassured.RestAssured.*;
 
 import objects.Post;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,12 @@ import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(JUnitPlatform.class)
 public class PostTest extends BaseTest{
+
+    @BeforeEach
+    public void
+    start() {
+        LOGGER.info("Test POST with /posts endpoint.");
+    }
 
     @Test public void
     testPostResponseSucceedWithValidBody() {

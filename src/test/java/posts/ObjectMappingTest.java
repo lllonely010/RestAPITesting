@@ -5,6 +5,7 @@ import base.BaseTest;
 import static io.restassured.RestAssured.*;
 
 import objects.Post;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,12 @@ import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(JUnitPlatform.class)
 public class ObjectMappingTest extends BaseTest {
+
+    @BeforeEach
+    public void
+    start() {
+        LOGGER.info("Test Post object mapping with /posts endpoint.");
+    }
 
     @Test public void
     testMapResponseToObjectUsingPost() {

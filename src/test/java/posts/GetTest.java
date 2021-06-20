@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import io.restassured.common.mapper.TypeRef;
 import static io.restassured.RestAssured.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,11 @@ import static org.hamcrest.Matchers.equalTo;
 @RunWith(JUnitPlatform.class)
 public class GetTest extends BaseTest{
 
+    @BeforeEach
+    public void
+    start() {
+        LOGGER.info("Test GET with /posts endpoint.");
+    }
     @Test public void
     testResponseStatusCode() {
         expect().statusCode(200).when().get(POSTSURL);
