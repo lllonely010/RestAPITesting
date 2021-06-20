@@ -3,26 +3,21 @@ package support;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
+import org.slf4j.Logger;
 
 public class PropertyManager {
 
     private static PropertyManager pm;
     private static final String propertyFilePath = System.getProperty("user.dir") + "/resources/application.properties";
-    public static String logFilePath = System.getProperty("user.dir") + "/resources/log4j2.xml";
     private String baseUri;
     private String postsUri;
     private String usersUri;
     private String commentsUri;
 
 
-    static {
-        System.setProperty("log4j.configurationFile", logFilePath);
-    }
-
-    private final Logger log = LogManager.getLogger(PropertyManager.class);
+    static Logger log = getLogger(lookup().lookupClass());
 
     public static PropertyManager getInstance() {
         if (pm == null) {

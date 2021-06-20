@@ -11,8 +11,6 @@ import org.junit.runner.RunWith;
 @RunWith(JUnitPlatform.class)
 public abstract class BaseTest extends Base{
 
-    public static Logger LOGGER = LogManager.getLogger(BaseTest.class);
-
     @BeforeAll
     public static void setupAll() { LOGGER.info("Start to set up for all tests"); }
 
