@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 @Tag("flow")
 @RunWith(JUnitPlatform.class)
-public class HappyFlowTest extends BaseTest {
+class HappyFlowTest extends BaseTest {
 
     public int userId;
     public List<Post> postslist;
@@ -28,7 +28,7 @@ public class HappyFlowTest extends BaseTest {
         userId = UserFunc.getUserIDByName("Delphine");
         postslist =  Arrays.asList(PostsFunc.getPostsByUserID(userId).getBody().as(Post[].class));
     }
-    @Test public void
+    @Test void
     testSearchPostSucceedFromValidUserName() {
         LOGGER.info("Test Search post by userId and check all posts");
         if(postslist.size() > 0) {
@@ -40,7 +40,7 @@ public class HappyFlowTest extends BaseTest {
 
     }
 
-    @Test public void
+    @Test void
     testCheckCommentsMailFormat() {
         LOGGER.info("Test Search comments by postId and check all mail address format");
         postslist.forEach(post -> {

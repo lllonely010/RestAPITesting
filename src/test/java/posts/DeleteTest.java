@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class DeleteTest extends BaseTest{
+class DeleteTest extends BaseTest{
 
     @BeforeEach
     public void
@@ -20,14 +20,14 @@ public class DeleteTest extends BaseTest{
         LOGGER.info("Test DELETE with /posts/{userId} endpoint.");
     }
 
-    @Test public void
+    @Test void
     testDeleteResponseWithValidUserId() {
         given().pathParam("userId","1").when().delete(POSTSURL+"/{userId}").then().statusCode(200);
     }
 
-    @Disabled
-    @Test public void
-    testDeleteResponseWithInvalidUserId() {  //// the case succeed, but should be an error code
+    @Disabled("the case succeed, but should be an error code")
+    @Test void
+    testDeleteResponseWithInvalidUserId() {
         given().pathParam("userId","2000").when().delete(POSTSURL+"/{userId}").then().statusCode(200);
     }
 

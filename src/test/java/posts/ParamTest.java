@@ -12,15 +12,14 @@ import org.junit.jupiter.api.Test;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class ParamTest extends BaseTest{
+class ParamTest extends BaseTest{
 
-    @BeforeEach
-    public void
+    @BeforeEach void
     start() {
         LOGGER.info("Test param userId with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testGetWithParamSucceed() {
         given().param("userId",1).expect().statusCode(200).when().get(POSTSURL);
     }

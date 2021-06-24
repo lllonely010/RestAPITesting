@@ -16,15 +16,14 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class ObjectMappingTest extends BaseTest {
+class ObjectMappingTest extends BaseTest {
 
-    @BeforeEach
-    public void
+    @BeforeEach void
     start() {
         LOGGER.info("Test Post object mapping with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testMapResponseToObjectUsingPost() {
 
         final Post object;

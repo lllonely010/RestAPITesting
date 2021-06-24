@@ -1,7 +1,7 @@
 package support;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.FileInputStream;
 import java.util.Properties;
 import static java.lang.invoke.MethodHandles.lookup;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 public class PropertyManager {
 
     private static PropertyManager pm;
-    private static final String propertyFilePath = System.getProperty("user.dir") + "/resources/application.properties";
+    private static final String FILEPATH = System.getProperty("user.dir") + "/resources/application.properties";
     private String baseUri;
     private String postsUri;
     private String usersUri;
@@ -27,12 +27,11 @@ public class PropertyManager {
         return pm;
     }
 
-    private void loadData() {
+    private void loadData(){
         Properties prop = new Properties();
         log.info("Read configuration.properties file");
-
-        try {
-            prop.load(new FileInputStream(propertyFilePath));
+        try (FileInputStream stream = new FileInputStream(FILEPATH)) {
+            prop.load(stream);
         } catch (IOException e) {
             log.error("Configuration properties file cannot be found");
         }

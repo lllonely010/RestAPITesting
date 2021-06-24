@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class PatchTest extends BaseTest{
+class PatchTest extends BaseTest{
 
     @BeforeEach
     public void
@@ -22,7 +22,7 @@ public class PatchTest extends BaseTest{
         LOGGER.info("Test Patch with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testPatchResponseSucceedWithValidUserID() {
         Post postbody = new Post(1,1,"foo","bar");
         given(requestSpec).pathParam("userId","1").when().body(postbody).patch(POSTSURL+"/{userId}")
@@ -32,7 +32,7 @@ public class PatchTest extends BaseTest{
                 .body("body", equalTo("bar"));
     }
 
-    @Test public void
+    @Test void
     testPatchResponseSucceedWithoutFullBody() {
         Post postbody = new Post(1,"foo");
         given(requestSpec).pathParam("userId","1").when().body(postbody).patch(POSTSURL+"/{userId}")
@@ -41,9 +41,9 @@ public class PatchTest extends BaseTest{
                 .body("title", equalTo("foo"));
     }
 
-    @Disabled
-    @Test public void
-    testPatchResponseSucceedWithoutHeader() {  //the case failed, title is not updated
+    @Disabled("the case failed, title is not updated")
+    @Test void
+    testPatchResponseSucceedWithoutHeader() {
         Post postbody = new Post(1,1,"foo","bar");
         given().pathParam("userId","1").when().body(postbody).patch(POSTSURL+"/{userId}")
                 .then().statusCode(200)
@@ -52,18 +52,18 @@ public class PatchTest extends BaseTest{
                 .body("body", equalTo("bar"));
     }
 
-    @Disabled
-    @Test public void
+    @Disabled("the case succeed, but should be an error code")
+    @Test void
     testPatchResponseSucceedWithInvalidUserID() {
         Post postbody = new Post(2222,2222,"foo","bar");
         given(requestSpec).pathParam("userId","2222").when().body(postbody).patch(POSTSURL+"/{userId}")
-                .then().statusCode(200); // the case succeed, but should be an error code
+                .then().statusCode(200);
     }
 
-    @Disabled
-    @Test public void
+    @Disabled("the case succeed, but should be an error code")
+    @Test void
     testPatchResponseSucceedWithoutBody() {
         given(requestSpec).pathParam("userId","2222").when().patch(POSTSURL+"/{userId}")
-                .then().statusCode(200); // the case succeed, but should be an error code
+                .then().statusCode(200);
     }
 }

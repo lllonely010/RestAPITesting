@@ -14,15 +14,14 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class PostTest extends BaseTest{
+class PostTest extends BaseTest{
 
-    @BeforeEach
-    public void
+    @BeforeEach void
     start() {
         LOGGER.info("Test POST with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testPostResponseSucceedWithValidBody() {
         Post postbody = new Post(1,"foo","bar");
         given(requestSpec).when().body(postbody).post(POSTSURL)
@@ -33,8 +32,8 @@ public class PostTest extends BaseTest{
                 .body("body", equalTo("bar"));
     }
 
-    @Disabled
-    @Test public void // // the case succeed, but should be an error code
+    @Disabled("the case succeed, but should be an error code")
+    @Test void
     testPostResponseSucceedWithWithoutBody() {
         given(requestSpec).when().post(POSTSURL).then().statusCode(201);
     }

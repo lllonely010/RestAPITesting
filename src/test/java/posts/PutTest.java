@@ -13,31 +13,30 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class PutTest extends BaseTest{
+class PutTest extends BaseTest{
 
-    @BeforeEach
-    public void
+    @BeforeEach void
     start() {
         LOGGER.info("Test PUT with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testPutResponseSucceed() {
         Post postbody = new Post(1,1,"foo","bar");
         given(requestSpec).pathParam("userId","1").when().body(postbody).put(POSTSURL+"/{userId}").then().statusCode(200).body("id", equalTo(1));
     }
-    @Test public void
+    @Test void
     testPutResponseSucceedWithoutHeader() {
         Post postbody = new Post(1,1,"foo","bar");
         given().pathParam("userId","1").when().body(postbody).put(POSTSURL+"/{userId}").then().statusCode(200).body("id", equalTo(1));
     }
-    @Test public void
+    @Test void
     testPutResponseFailedWithInvalidBody() {
         Post postbody = new Post(2222,2222,"foo","bar");
         given(requestSpec).pathParam("userId","2222").when().body(postbody).put(POSTSURL+"/{userId}").then().statusCode(500);
     }
 
-    @Test public void
+    @Test void
     testPutResponseFailedWithoutBody() {
         given(requestSpec).pathParam("userId","2222").when().put(POSTSURL+"/{userId}").then().statusCode(500);
     }

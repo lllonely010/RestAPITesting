@@ -18,25 +18,24 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Tag("posts")
 @RunWith(JUnitPlatform.class)
-public class GetTest extends BaseTest{
+class GetTest extends BaseTest{
 
-    @BeforeEach
-    public void
+    @BeforeEach void
     start() {
         LOGGER.info("Test GET with /posts endpoint.");
     }
 
-    @Test public void
+    @Test void
     testResponseStatusCode() {
         expect().statusCode(200).when().get(POSTSURL);
     }
 
-    @Test public void
+    @Test void
     testResponseHasSize() {
         expect().body("$",hasSize(100)).when().get(POSTSURL);
     }
 
-    @Test public void
+    @Test void
     testResponseValue() {
         List<Map<String, Object>> posts = get(POSTSURL).as(new TypeRef<List<Map<String, Object>>>() {});
         assertThat(posts, hasSize(100));
