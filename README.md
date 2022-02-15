@@ -1,12 +1,10 @@
-# RestAPITesting
- A simple example API test suite using Java, RestRassured, JUnit5, Log4j, Allure, CircleCI, IntelliJ IDEA etc.
- 
- ## Testing Scope
- #### Method Testing Example for /posts: 
-	GET,POST,PUT,PATCH,Param,DELETE
- #### Happy Flow:
- 1. Search User with username
- 2. Search Posts with userId
- 3. Get all comments and validate emial address format
- 
+## Introduction
 
+ This is a example Rest API test solution for sample endpoint available in https://jsonplaceholder.typicode.com
+ Tests are written using Java, RestAssured, JUnit5, Maven, Log4j, Allure, CircleCI, IntelliJ IDEA etc.
+ 
+## Testing Scope
+ Method Test cases for /posts: GET,POST,PUT,PATCH,Param,DELETE
+
+## Executing the tests
+Run `mvn clean verify` from the command line.

@@ -3,21 +3,17 @@ package support;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.util.Properties;
-import static java.lang.invoke.MethodHandles.lookup;
-import static org.slf4j.LoggerFactory.getLogger;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PropertyManager {
 
     private static PropertyManager pm;
     private static final String FILEPATH = System.getProperty("user.dir") + "/resources/application.properties";
     private String baseUri;
-    private String postsUri;
-    private String usersUri;
-    private String commentsUri;
 
 
-    static Logger log = getLogger(lookup().lookupClass());
+    static Logger log = LoggerFactory.getLogger(PropertyManager.class);
 
     public static PropertyManager getInstance() {
         if (pm == null) {
@@ -35,25 +31,12 @@ public class PropertyManager {
         } catch (IOException e) {
             log.error("Configuration properties file cannot be found");
         }
-
         baseUri = prop.getProperty("baseUri");
-        postsUri= prop.getProperty("posts");
-        usersUri = prop.getProperty("users");
-        commentsUri = prop.getProperty("comments");
+
     }
 
     public String getBaseUri() {
         return baseUri;
     }
-    public String getPostsUri() {
-        return baseUri + postsUri;
-    }
-    public String getUsersUri() {
-        return baseUri + usersUri;
-    }
-    public String getCommentsUri() {
-        return baseUri + commentsUri;
-    }
-
 
 }
